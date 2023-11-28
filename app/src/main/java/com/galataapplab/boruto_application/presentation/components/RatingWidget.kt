@@ -22,6 +22,9 @@ import com.galataapplab.boruto_application.R
 import com.galataapplab.boruto_application.ui.theme.EXTRA_SMALL_PADDING
 import com.galataapplab.boruto_application.ui.theme.LightGray
 import com.galataapplab.boruto_application.ui.theme.StarColor
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+
 
 @Composable
 fun RatingWidget(
@@ -81,7 +84,12 @@ fun FilledStar(
     starPathBounds: Rect,
     scaleFactor: Float
 ) {
-    Canvas(modifier = Modifier.size(24.dp)) {
+    Canvas(modifier = Modifier
+        .size(24.dp)
+        .semantics {
+            contentDescription = "FilledStar"
+        }
+    ) {
         val canvasSize = size
         scale(scale = scaleFactor) {
             val pathWidth = starPathBounds.width
@@ -105,7 +113,12 @@ fun HalfFilledStar(
     starPathBounds: Rect,
     scaleFactor: Float
 ) {
-    Canvas(modifier = Modifier.size(24.dp)) {
+    Canvas(modifier = Modifier
+        .size(24.dp)
+        .semantics {
+            contentDescription = "HalfFilledStar"
+        }
+    ) {
         val canvasSize = size
         scale(scale = scaleFactor) {
             val pathWidth = starPathBounds.width
@@ -138,7 +151,12 @@ fun EmptyStar(
     starPathBounds: Rect,
     scaleFactor: Float
 ) {
-    Canvas(modifier = Modifier.size(24.dp)) {
+    Canvas(modifier = Modifier
+        .size(24.dp)
+        .semantics {
+            contentDescription = "EmptyStar"
+        }
+    ) {
         val canvasSize = size
         scale(scale = scaleFactor) {
             val pathWidth = starPathBounds.width
